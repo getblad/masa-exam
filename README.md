@@ -17,8 +17,8 @@ Written by Anton Merlian
  - [ ] Private Role: A security role that is used in internal system processing
 
 2. **What is the role of a service in nodejs server architecture?** *=> 2 points*
- - [x] Get the request from the router, treat the request parameters, prepare the response of the server to the consumer
- - [ ] Keep state of a specific logic portion of the system, provide processing of the data passed from the different controllers, parse the data and returned the processed response
+ - [ ] Get the request from the router, treat the request parameters, prepare the response of the server to the consumer
+ - [x] Keep state of a specific logic portion of the system, provide processing of the data passed from the different controllers, parse the data and returned the processed response
  - [ ] To be the first element in the system that should service the consumer for his CRUD request to the server
  - [ ] To provide services to the system that do not require a state but should be used across the whole system
 
@@ -66,9 +66,9 @@ Written by Anton Merlian
 
 10. **Why would you use the JWT token? (more than a single answer can be selected)** *=> 2 points*
  - [ ] JWT tokens are encrypted
- - [ ] It's a more secure way of handling authentication and authorization data than username and password
- - [ ] JWT tokens are signed and this signature can be verified uniquely
- - [x] All answers are correct
+ - [x] It's a more secure way of handling authentication and authorization data than username and password
+ - [x] JWT tokens are signed and this signature can be verified uniquely
+ - [ ] All answers are correct
 
 
 ## Section B: Please, explain the following terms the best way you can *=> 22 points*
