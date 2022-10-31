@@ -165,8 +165,9 @@ This code took places as number of digit and input as number placed at the right
 					this.getRole(roleId)
 				])
 				.then((results: [user | role]) => {
-					if( results[1].userIds.indexOf(results[0].id) > -1) 
+					if( results[1].userIds.indexOf(results[0].id) > -1) {
 					resolve(results[0]);
+					}
 				});
 			});
 		}
