@@ -29,8 +29,8 @@
 4. **What is the code of a server error in HTTP protocol?** *=> 2 points*
  - [ ] 2xx
  - [ ] 3xx
- - [x] 4xx
- - [ ] 5xx
+ - [ ] 4xx
+ - [x] 5xx
 
 5. **What is the correct flow a story?** *=> 2 points*
  - [ ] Software Detailed Design (SDD), Product design, QA review, UI design, Development, QA testing, Customer review
@@ -97,18 +97,13 @@ It's part of the server that provides some additional logic that server needs to
         if (expectedMonth > 11) {
             expectedMonth = expectedMonth % 12;
         }
+     	let  expectedYear:number = value / 12;
     
-       // if (expectedMonth < 0) {
-        //    expectedMonth += 12;
-        //}
-    
+
         date.setMonth(expectedMonth);
+        date.setFullYear(date.getFullYear() + expectedYear);
         if (date.getMonth() > expectedMonth) {
-            date.setDate(0);}
-        // const daysToAdd: number = (date.getMonth() >  expectedMonth) ? -1 : 1;
-        // while (date.getMonth() !== expectedMonth) {
-        //     date.setDate(date.getDate() + daysToAdd);
-        // }
+            date.setDate(0);
     
         return  date;
     }}
@@ -124,7 +119,7 @@ You need to write a query that returns for each student his/her parents' informa
 | Mary Smith | Klark Smith (07-2134897) |
 | Patrice Raymond | Orphan |
 
-SELECT *(here i write all fields needed:))), ISNULL(pts.student_id, "Orphan") from student st LEFT JOIN parent_to_student pts  ON pts.student_id=st.id LEFT JOIN parents pr ON pr.id = pts.parents_id 
+SELECT *(here i write all fields needed:))), ISNULL(pr.first_name, "Orphan") from student st LEFT JOIN parent_to_student pts  ON pts.student_id=st.id LEFT JOIN parents pr ON pr.id = pts.parents_id 
 
 18. **Write a method in JS/TS that gets as an argument an array of numbers and returns the sum of all array members**. *=> 5 points*
 function sum(arr:Array<number>){
