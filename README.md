@@ -124,7 +124,7 @@ You need to write a query that returns for each student his/her parents' informa
 | Mary Smith | Klark Smith (07-2134897) |
 | Patrice Raymond | Orphan |
 
-SELECT *, (SELECT "orphan" WHERE pts.student_id = NULL) from student st LEFT JOIN parent_to_student pts  ON pts.student_id=st.id LEFT JOIN parents pr ON pr.id = pts.parents_id 
+SELECT *(here i write all fields needed))), (SELECT "orphan" WHERE isNull(pts.student_id)) from student st LEFT JOIN parent_to_student pts  ON pts.student_id=st.id LEFT JOIN parents pr ON pr.id = pts.parents_id 
 
 18. **Write a method in JS/TS that gets as an argument an array of numbers and returns the sum of all array members**. *=> 5 points*
 function sum(arr:Array<number>){
@@ -202,7 +202,7 @@ This code took places as number of digit and input as number placed at the right
 
 The following is the list of currently existing problems with the system. :
 
-21. **The server solution cannot be compiled. Fix all compilation issues accordingly.** *=> 10 points*
+21. **The server solution cannot be compiled. Fix all compilation issues accordingly.** *=> 10 points* -[x]
 
 22. **An attempt to get a list of board types fails.** *=> 5 points*
 
