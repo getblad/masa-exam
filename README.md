@@ -93,24 +93,25 @@ It's part of the server that provides some additional logic that server needs to
 16. **You received a bug stating the following: "Intermittently the following method results in a system getting stuck." You're required to find and fix the problem in this method:** *=> 10 points*
 
 		public static addMonths(date: Date, value: number): Date {
-		    let expectedMonth: number = date.getMonth() + value;
-		    if (expectedMonth > 12) {
-		        expectedMonth = expectedMonth % 12;
-		    }
+        let expectedMonth: number = date.getMonth() + value;
+        if (expectedMonth > 11) {
+            expectedMonth = expectedMonth % 12;
+        }
     
-		    if (expectedMonth < 0) {
-		        expectedMonth += 12;
-	        }
+       // if (expectedMonth < 0) {
+        //    expectedMonth += 12;
+        //}
     
-		    date.setMonth(date.getMonth() + value);
-	        const daysToAdd: number = date.getMonth() >  expectedMonth ? -1 : 1;
-	        while (date.getMonth() !== expectedMonth) {
-		        date.setDate(date.getDate() + daysToAdd);
-		    }
+        date.setMonth(expectedMonth);
+        if (date.getMonth() > expectedMonth) {
+            date.setDate(0);}
+        // const daysToAdd: number = (date.getMonth() >  expectedMonth) ? -1 : 1;
+        // while (date.getMonth() !== expectedMonth) {
+        //     date.setDate(date.getDate() + daysToAdd);
+        // }
     
-		    return  date;
-	    }
-
+        return  date;
+    }}
 17. **Having the following DB tables diagram:** *=> 10 points*
 
 ![](https://github.com/lentyaishe/masa-exam/blob/dev/resources/db-relations.jpg)
@@ -123,7 +124,12 @@ You need to write a query that returns for each student his/her parents' informa
 | Mary Smith | Klark Smith (07-2134897) |
 | Patrice Raymond | Orphan |
 
+SELECT *, (SELECT "orphan" WHERE pts.student_id = NULL) from student st LEFT JOIN parent_to_student pts  ON pts.student_id=st.id LEFT JOIN parents pr ON pr.id = pts.parents_id 
+
 18. **Write a method in JS/TS that gets as an argument an array of numbers and returns the sum of all array members**. *=> 5 points*
+function sum(arr:Array<number>){
+	return arr.reduce((previousValue, currentValue) => previousValue + currentValue)
+}
 
 19. **Explain the following piece of code:** *=> 5 points*
 
@@ -132,6 +138,7 @@ You need to write a query that returns for each student his/her parents' informa
 			return Array(+(zeroes > 0 && zeroes)).join("0") + input.toString();
 		}
 
+This code took places as number of digit and input as number placed at the right and then fill all other places with zeroes.
 20. **Fix the following code and fill the required gaps in it by the coding standards. The purpose of this code is to verify the user is a member of a specific role and in case the user is the user data is returned by the isUserPermitted() method. Treat the comments as actual code written that should not be changed:** *=> 15 points*
 
 		interface user {
@@ -172,6 +179,7 @@ You need to write a query that returns for each student his/her parents' informa
 		private getUser(userId: number): Promise<user> {
 			return new Promise<user>((resolve, reject) => {
 				// Access to the DB that returns the user data by id as dbUser or null
+
 			});
 		}
 		
